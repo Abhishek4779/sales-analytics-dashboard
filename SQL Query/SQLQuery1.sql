@@ -1,0 +1,19 @@
+USE SuperstoreDB;
+SELECT COUNT(*) FROM Superstore_Orders;
+
+SELECT COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE  TABLE_NAME = 'Superstore_Orders'
+ORDER BY ORDINAL_POSITION;
+
+SELECT * FROM Superstore_Orders;
+
+SELECT TOP 50 Order_ID, Order_Date, Ship_Date
+FROM Superstore_Orders
+WHERE TRY_CONVERT(date, Order_Date) IS NULL
+OR TRY_CONVERT(date, Ship_Date) IS NULL;
+
+SELECT TOP 50 Order_ID, Order_Date, Ship_Date
+FROM Superstore_Orders
+ORDER BY Order_Date;
+
